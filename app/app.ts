@@ -1,6 +1,7 @@
 import * as angular from 'angular';
 import 'angular-ui-router';
 import * as router from 'angular-ui-router';
+import { ALMOST_PI } from './config/constants';
 import {
   MessageService
 } from './common/services';
@@ -43,5 +44,6 @@ angular
       });
     }
   ])
+  .constant('ALMOST_PI', ALMOST_PI)
   .service('messageService', MessageService)
   .controller('homeController', HomeController);

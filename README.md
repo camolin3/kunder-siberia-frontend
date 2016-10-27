@@ -5,12 +5,12 @@
 Using `node 6.x`.
 
 ```bash
-npm i -g gulp
+yarn global add gulp     # npm i -g gulp
 ```
 
 ## Install
 
 ```bash
-npm install
-gulp serve
+yarn     # npm install
+gulp
 ```
