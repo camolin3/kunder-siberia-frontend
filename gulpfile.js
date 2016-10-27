@@ -45,6 +45,7 @@ gulp.task('clean', cleanTask);
 gulp.task('config',  configTask);
 gulp.task('html', htmlTask);
 gulp.task('img', imgTask);
+gulp.task('fonts', fontsTask);
 gulp.task('sass', sassTask);
 gulp.task('ts', ['config'], tsTask);
 gulp.task('copy', ['config', 'img', 'fonts', 'html', 'sass', 'ts']);
@@ -102,13 +103,13 @@ function sassTask() {
 }
 
 function tsTask() {
-  return browserify({
+  return watchify(browserify({
       basedir: '.',
       debug: true,
-      entries: [path.entry],
+      entries: [paths.entry],
       cache: {},
       packageCache: {}
-    })
+    }))
     .plugin(tsify)
     .bundle()
     .pipe(source('bundle.js'))
@@ -128,7 +129,7 @@ function testTask(done) {
   var server = new Server({
     configFile: __dirname + '/test/karma.conf.js',
     singleRun: true
-  })
+  });
 
   server.on('run_complete', function (browsers, results) {
     done(results.error ? 'There are test failures' : null);
@@ -163,5 +164,5 @@ function watchTask() {
   gulp.watch(paths.ts, ['ts']);
 }
 
-function printLog(msg) { return util.log(util.colors.cyan(msg)); };
-function printError(msg) { return util.log(util.colors.red(msg)); };
+function printLog(msg) { return util.log(util.colors.cyan(msg)); }
+function printError(msg) { return util.log(util.colors.red(msg)); }

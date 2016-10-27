@@ -6,6 +6,6 @@ export class HomeController {
   ) {}
 
   public static resolve: any = {
-    greeting: ['MessageService', (message: MessageService) => message.getMessage()]
+    greeting: ['messageService', (message: MessageService) => message.getMessage()]
   };
 }

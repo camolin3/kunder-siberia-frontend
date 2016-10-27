@@ -1,5 +1,11 @@
+import * as angular from 'angular';
+
 export class MessageService {
-  getMessage(): any {
-    return 'This is SIBERIA!';
+  constructor(
+    private $q: angular.IQService
+  ) {}
+
+  getMessage(): angular.IPromise<string> {
+    return this.$q.when('This is SIBERIA!');
   }
 }

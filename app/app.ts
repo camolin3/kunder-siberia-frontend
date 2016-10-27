@@ -1,4 +1,6 @@
 import * as angular from 'angular';
+import 'angular-ui-router';
+import * as router from 'angular-ui-router';
 import {
   MessageService
 } from './common/services';
@@ -14,8 +16,8 @@ angular
     '$stateProvider',
     '$urlRouterProvider',
     (
-      $stateProvider,
-      $urlRouterProvider
+      $stateProvider: router.IStateProvider,
+      $urlRouterProvider: router.IUrlRouterProvider
     ) => {
       $urlRouterProvider.otherwise('/');
 
@@ -24,7 +26,8 @@ angular
           url: '/',
           templateUrl: 'modules/home/home.html',
           controller: 'homeController',
-          controllerAs: 'home'
+          controllerAs: 'home',
+          resolve: HomeController.resolve
         });
     }
   ])
@@ -36,7 +39,7 @@ angular
       $rootScope
     ) => {
       $rootScope.$on('$stateChangeError', (event, toState, toParams, fromState, fromParams, e) => {
-        $log(e);
+        $log.log(e);
       });
     }
   ])
