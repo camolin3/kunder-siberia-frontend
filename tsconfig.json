@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "lib": [
+      "dom",
+      "es6"
+    ],
+    "typeRoots": [ "node_modules/@types/" ],
+    "types": [
+      "jasmine"
+    ]
+  },
+  "exclude": [
+    "node_modules"
+  ],
+  "include": [
+    "app/**/*.ts"
+  ]
+}
