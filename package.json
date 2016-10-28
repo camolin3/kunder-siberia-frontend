@@ -8,6 +8,9 @@
   },
   "private": true,
   "devDependencies": {
+    "@types/angular-mocks": "1.5.5",
+    "@types/jasmine": "^2.5.36",
+    "angular-mocks": "1.5.5",
     "browserify": "^13.1.1",
     "del": "^2.2.0",
     "gulp": "^3.9.1",
@@ -27,7 +30,7 @@
     "karma-junit-reporter": "^0.3.8",
     "karma-ng-html2js-preprocessor": "^1.0.0",
     "karma-phantomjs-launcher": "^1.0.0",
-    "karma-typescript": "^2.0.6",
+    "karma-typescript": "git://github.com/monounity/karma-typescript.git#2.1",
     "phantomjs-prebuilt": "^2.1.4",
     "tsify": "^1.0.7",
     "tslint": "^3.15.1",
@@ -37,9 +40,9 @@
     "yargs": "^4.2.0"
   },
   "dependencies": {
-    "@types/angular": "^1.5.17",
+    "@types/angular": "1.5.8",
     "@types/angular-ui-router": "^1.1.34",
-    "angular": "^1.5.8",
+    "angular": "1.5.8",
     "angular-ui-router": "^0.3.1"
   }
 }

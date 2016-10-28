@@ -1,10 +1,12 @@
-import * as angular from 'angular';
+import 'angular';
 import 'angular-ui-router';
+
+import * as angular from 'angular';
 import * as router from 'angular-ui-router';
 import { ALMOST_PI } from './config/constants';
 import {
   MessageService
-} from './common/services';
+} from './common/services/index';
 import {
   HomeController
 } from './modules/home/home.controller';

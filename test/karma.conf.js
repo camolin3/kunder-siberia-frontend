@@ -12,7 +12,11 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      { pattern: 'app/**/*.ts' },
+      { pattern: 'node_modules/angular/angular.js' },
+      { pattern: 'node_modules/angular-mocks/angular-mocks.js' },
+      { pattern: 'node_modules/angular-ui-router/release/angular-ui-router.js' },
+      { pattern: 'app/**/*.ts', exclude: 'app/**/*.spec.ts' },
+      { pattern: 'app/**/*.spec.ts' },
       { pattern: 'app/**/*.html' },
     ],
 
@@ -38,9 +42,20 @@ module.exports = function(config) {
     reporters: ['progress', 'karma-typescript', 'junit'],
 
     karmaTypescriptConfig: {
+      tsconfig: './tsconfig.json',
+      compilerOptions: {
+        sourceMap: true,
+        'target': 'es5',
+        'module': 'commonjs',
+      },
+      disableCodeCoverageInstrumentation: false,
+      excludeFromCoverage: /\.(d|spec|test)\.ts/,
       reports: {
         'html': 'test/results/coverage',
         'cobertura': 'test/results/coverage'
+      },
+      transformPath: function(filepath) {
+        return filepath.replace(/\.(ts|tsx)$/, '.js');
       }
     },
 

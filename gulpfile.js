@@ -131,7 +131,7 @@ function testTask(done) {
     singleRun: true
   });
 
-  server.on('run_complete', function (browsers, results) {
+  server.on('run_complete', function(browsers, results) {
     done(results.error ? 'There are test failures' : null);
   });
 
@@ -139,11 +139,17 @@ function testTask(done) {
 }
 
 function tddTask(done) {
-  new Server({
+  var server = new Server({
     configFile: __dirname + '/test/karma.conf.js',
     autoWatch: true,
     singleRun: false
-  }, done).start();
+  });
+
+  server.on('run_complete', function() {
+    done();
+  });
+
+  server.start();
 }
 
 function tsStyleTask() {
