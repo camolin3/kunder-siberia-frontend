@@ -12,11 +12,10 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      { pattern: 'node_modules/angular/angular.js' },
-      { pattern: 'node_modules/angular-mocks/angular-mocks.js' },
-      { pattern: 'node_modules/angular-ui-router/release/angular-ui-router.js' },
-      { pattern: 'app/**/*.ts', exclude: 'app/**/*.spec.ts' },
-      { pattern: 'app/**/*.spec.ts' },
+      'node_modules/angular/angular.js',
+      'node_modules/angular-mocks/angular-mocks.js',
+      'node_modules/angular-ui-router/release/angular-ui-router.js',
+      { pattern: 'app/**/*.ts' },
       { pattern: 'app/**/*.html' },
     ],
 

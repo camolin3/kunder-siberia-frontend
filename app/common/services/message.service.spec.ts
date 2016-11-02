@@ -4,7 +4,7 @@ import { MessageService } from './message.service';
 describe('MessageService', () => {
   let message: MessageService;
 
-  beforeEach(angular.mock.module('app'));
+  beforeEach(angular.mock.module('app', 'templates'));
   beforeEach(inject((messageService) => {
     message = messageService;
   }));

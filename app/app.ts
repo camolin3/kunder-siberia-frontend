@@ -1,8 +1,10 @@
 import 'angular';
 import 'angular-ui-router';
+import 'lodash';
 
 import * as angular from 'angular';
 import * as router from 'angular-ui-router';
+import * as _ from 'lodash';
 import { ALMOST_PI } from './config/constants';
 import {
   MessageService
@@ -47,5 +49,6 @@ angular
     }
   ])
   .constant('ALMOST_PI', ALMOST_PI)
+  .constant('_', _)
   .service('messageService', MessageService)
   .controller('homeController', HomeController);
